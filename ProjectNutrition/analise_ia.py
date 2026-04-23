@@ -2,16 +2,11 @@ import pandas as pd
 from google import genai
 import json
 
-# 1. Configurar a API com a NOVA biblioteca
 CHAVE_API = "AIzaSyC-oM31SZ9sa3QUdf8Zis9lQwdsvU8qlDM"
 client = genai.Client(api_key=CHAVE_API)
 
-# 2. Ler o arquivo (Corrigido para ler o Excel que você já gerou!)
-# OBS: O openpyxl que você instalou antes é quem faz essa linha funcionar
 df = pd.read_excel("projeto_nutricao_dados.xlsx")
 
-
-# 3. A Função Mágica: Transforma Texto em JSON
 def analisar_refeicao_com_ia(texto_dieta):
     prompt = f"""
     Aja como um software de análise nutricional. Analise o texto abaixo e estime os valores nutricionais totais.
@@ -41,16 +36,13 @@ def analisar_refeicao_com_ia(texto_dieta):
 
 print("Enviando dados para a IA (isso pode levar alguns segundos)...")
 
-# Para testar, vamos processar as 3 primeiras linhas
 df_teste = df.head(3).copy()
 
 resultados_ia = df_teste['Recordatorio_24h'].apply(analisar_refeicao_com_ia)
 
-# Transformar JSON em colunas e juntar
 df_novas_colunas = pd.json_normalize(resultados_ia)
 df_final = pd.concat([df_teste.reset_index(drop=True), df_novas_colunas], axis=1)
 
-# Salvar o resultado (Vou salvar como CSV para você ver a diferença)
 df_final.to_csv("dados_enriquecidos_ia.csv", index=False, encoding='utf-8-sig')
 
 print("\nSucesso! Veja como ficou a tabela com as novas colunas:")
