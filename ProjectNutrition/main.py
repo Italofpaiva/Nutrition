@@ -2,9 +2,8 @@ import pandas as pd
 import random
 from faker import Faker
 
-fake = Faker('pt_BR')  # Gera nomes e dados em português
+fake = Faker('pt_BR') 
 
-# Configuração
 num_pacientes = 50
 dados = []
 
@@ -21,13 +20,11 @@ refeicoes_exemplo = [
 ]
 
 for _ in range(num_pacientes):
-    # Antropometria (Gerando dados aleatórios realistas)
     peso = round(random.uniform(50.0, 120.0), 1)
     altura = round(random.uniform(1.50, 1.95), 2)
     cintura = random.randint(60, 110)
     quadril = random.randint(80, 130)
 
-    # Escolhendo aleatoriamente dietas e sintomas
     dieta_desc = f"Manhã: {random.choice(refeicoes_exemplo)}. Almoço: {random.choice(refeicoes_exemplo)}."
     sinal_clinico = random.choice(sintomas_clinicos)
 
@@ -43,7 +40,6 @@ for _ in range(num_pacientes):
         "Sinais_Clinicos": sinal_clinico
     })
 
-# Criar DataFrame e Salvar
 df = pd.DataFrame(dados)
 df.to_excel("projeto_nutricao_dados.xlsx", index=False)
 
