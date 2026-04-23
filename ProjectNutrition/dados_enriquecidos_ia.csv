@@ -1,0 +1,4 @@
+﻿ID_Paciente,Nome,Idade,Peso_kg,Altura_m,Cintura_cm,Quadril_cm,Recordatorio_24h,Sinais_Clinicos,calorias_kcal,proteinas_g,carboidratos_g,gorduras_g
+94ac3ed4,Gustavo Henrique Santos,40,109.3,1.78,79,120,"Manhã: Café com leite e pão com manteiga. Almoço: Arroz, feijão e bife.",Cabelo quebradiço,760,47,84,25
+2be3124d,Vitória Montenegro,25,52.1,1.56,107,90,Manhã: Lasanha congelada e refrigerante. Almoço: Lasanha congelada e refrigerante.,Cabelo quebradiço,1200,40,180,40
+caf882b3,Maria Fernanda Gomes,50,101.2,1.7,92,129,"Manhã: Lasanha congelada e refrigerante. Almoço: Arroz, feijão e bife.",Palidez na conjuntiva,1220,62,160,39
